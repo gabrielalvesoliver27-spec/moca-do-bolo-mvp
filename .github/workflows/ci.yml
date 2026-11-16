@@ -1,0 +1,27 @@
+name: CI - Moça do Bolo
+
+on:
+  push:
+    branches: ['main', 'revisao-tecnica-acessibilidade']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  testes:
+    name: Build e testes automatizados
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obter código do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validar arquivos do protótipo
+        run: test -f prototipo/index.html && test -f prototipo/estilos.css
+
+      - name: Executar testes com cobertura
+        run: node --experimental-test-coverage --test testes/pedidos.test.mjs
