@@ -29,6 +29,12 @@ button {
   border-radius: 999px;
   background: #7d3f50;
   color: white;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid #36261f;
+  outline-offset: 3px;
 }
 
 article {
