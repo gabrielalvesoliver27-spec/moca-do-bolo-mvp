@@ -8,24 +8,31 @@
   </head>
   <body>
     <header>
-      <h1>Moça do Bolo</h1>
-      <p>Painel unificado de pedidos</p>
+      <div>
+        <p class="marca">MOÇA DO BOLO</p>
+        <h1>Painel de pedidos</h1>
+        <p>iFood, 99Food e Keeta em uma única tela</p>
+      </div>
+      <div class="acessibilidade" aria-label="Recursos de acessibilidade">
+        <button id="fonte" type="button" aria-pressed="false">A+ Fonte</button>
+        <button id="contraste" type="button" aria-pressed="false">◐ Alto contraste</button>
+      </div>
     </header>
     <main>
-      <nav aria-label="Filtros de plataforma">
-        <button>Todos</button>
-        <button>iFood</button>
-        <button>99Food</button>
-        <button>Keeta</button>
-      </nav>
-      <section aria-labelledby="novos">
-        <h2 id="novos">Pedidos novos</h2>
-        <article>
-          <h3>Pedido #9520 — Keeta</h3>
-          <p>2 itens · R$ 35,39</p>
-          <button>Iniciar produção</button>
-        </article>
+      <section class="resumo" aria-label="Resumo do turno">
+        <div><strong id="total">6</strong><span>pedidos hoje</span></div>
+        <div><strong>3</strong><span>plataformas ativas</span></div>
+        <div><strong>11h–21h</strong><span>horário de atendimento</span></div>
       </section>
+      <nav aria-label="Filtrar pedidos por plataforma">
+        <button class="filtro ativo" data-plataforma="Todos" type="button">Todos</button>
+        <button class="filtro" data-plataforma="iFood" type="button">iFood</button>
+        <button class="filtro" data-plataforma="99Food" type="button">99Food</button>
+        <button class="filtro" data-plataforma="Keeta" type="button">Keeta</button>
+      </nav>
+      <div id="mensagem" class="mensagem" aria-live="polite">Exibindo todos os pedidos.</div>
+      <section id="pedidos" class="pedidos" aria-label="Lista de pedidos"></section>
     </main>
+    <script type="module" src="app.mjs"></script>
   </body>
 </html>
